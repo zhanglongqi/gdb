@@ -1,0 +1,42 @@
+HOW TO USE GDBSERVER
+
+add below in users/Makefile:
+```
+ifeq ($(CONFIG_APP_GDBSERVER),y)
+	$(info make-gdbserver)
+	cd ./gdb; \
+	if [ ! -f gdb-7.12/Makefile ]; then \
+		cd gdb-7.12; ./configure --target=mips-linux --host=x86_64-pc-linux-gnu --prefix=$(shell pwd)/gdb/gdb-host; \
+		cd gdb/gdbserver; ./configure --host=mips-linux ; \
+		cd ../../../; \
+	fi
+	cd ..
+endif
+```
+
+1.Debugging an Already-running Process
+	1.1 remote step
+		1)gdbserver <host ip:port> --attach <pid of debugged process>
+
+	1.2 host step
+		1)export PATH=YOUR_PATH/rlxlinux-v2.2/users/gdb/gdb-host/bin/:$PATH 
+		2)cd <source file dir of debugged program>
+		3)mips-linux-gdb <debugged program>
+		/**enter gdb**/
+		4)target remote <remote ip:port>
+		
+
+2.Starting and debugging your program
+	1.1 remote step
+		1)gdbserver <host ip:port> <debugged program>
+	
+	1.2 host step
+		1)export PATH=YOUR_PATH/rlxlinux-v2.2/users/gdb/gdb-host/bin/:$PATH
+		2)cd <source file dir of debugged program>:
+		3)mips-linux-gdb <debugged program>
+                /**enter gdb**/
+		4)target remote <remote ip:port>
+
+
+notice:
+	host should ping remote succeed

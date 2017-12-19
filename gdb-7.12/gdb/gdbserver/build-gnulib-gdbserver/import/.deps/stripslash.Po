@@ -1,0 +1,18 @@
+stripslash.o: ../.././../gnulib/import/stripslash.c ../config.h \
+ ../.././../gnulib/import/dirname.h \
+ /l/branch-rtl819x-sdk-v3.4.11/toolchain/msdk-4.4.7-mips-EL-3.10-u0.9.33-m32t-140827/bin/../lib/gcc/mips-linux-uclibc/4.4.7/include/stdbool.h \
+ stddef.h \
+ /l/branch-rtl819x-sdk-v3.4.11/toolchain/msdk-4.4.7-mips-EL-3.10-u0.9.33-m32t-140827/bin/../lib/gcc/mips-linux-uclibc/4.4.7/include/stddef.h \
+ ../.././../gnulib/import/dosname.h
+
+../config.h:
+
+../.././../gnulib/import/dirname.h:
+
+/l/branch-rtl819x-sdk-v3.4.11/toolchain/msdk-4.4.7-mips-EL-3.10-u0.9.33-m32t-140827/bin/../lib/gcc/mips-linux-uclibc/4.4.7/include/stdbool.h:
+
+stddef.h:
+
+/l/branch-rtl819x-sdk-v3.4.11/toolchain/msdk-4.4.7-mips-EL-3.10-u0.9.33-m32t-140827/bin/../lib/gcc/mips-linux-uclibc/4.4.7/include/stddef.h:
+
+../.././../gnulib/import/dosname.h:
