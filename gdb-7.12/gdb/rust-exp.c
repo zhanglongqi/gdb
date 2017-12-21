@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.0.2.  */
+/* A Bison parser, made by GNU Bison 3.0.4.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2013 Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "3.0.2"
+#define YYBISON_VERSION "3.0.4"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -336,7 +336,7 @@ extern int yydebug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef union YYSTYPE YYSTYPE;
+
 union YYSTYPE
 {
 #line 197 "rust-exp.y" /* yacc.c:355  */
@@ -372,6 +372,8 @@ union YYSTYPE
 
 #line 374 "rust-exp.c" /* yacc.c:355  */
 };
+
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
@@ -414,7 +416,7 @@ struct rust_op
 };
 
 
-#line 418 "rust-exp.c" /* yacc.c:358  */
+#line 420 "rust-exp.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -1809,7 +1811,7 @@ yyreduce:
 		  if (rust_ast == NULL)
 		    rust_ast = (yyvsp[0].op);
 		}
-#line 1814 "rust-exp.c" /* yacc.c:1646  */
+#line 1816 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 16:
@@ -1818,7 +1820,7 @@ yyreduce:
 		  VEC_safe_insert (rust_op_ptr, *(yyvsp[-1].params), 0, (yyvsp[-3].op));
 		  error (_("Tuple expressions not supported yet"));
 		}
-#line 1823 "rust-exp.c" /* yacc.c:1646  */
+#line 1825 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 17:
@@ -1833,13 +1835,13 @@ yyreduce:
 		  val.val = 0;
 		  (yyval.op) = ast_literal (val);
 		}
-#line 1838 "rust-exp.c" /* yacc.c:1646  */
+#line 1840 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 18:
 #line 407 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_struct ((yyvsp[-3].op), (yyvsp[-1].field_inits)); }
-#line 1844 "rust-exp.c" /* yacc.c:1646  */
+#line 1846 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 19:
@@ -1853,7 +1855,7 @@ yyreduce:
 
 		  (yyval.one_field_init) = sf;
 		}
-#line 1858 "rust-exp.c" /* yacc.c:1646  */
+#line 1860 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 20:
@@ -1865,7 +1867,7 @@ yyreduce:
 		  sf.init = (yyvsp[0].op);
 		  (yyval.one_field_init) = sf;
 		}
-#line 1870 "rust-exp.c" /* yacc.c:1646  */
+#line 1872 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 21:
@@ -1875,7 +1877,7 @@ yyreduce:
 		    = OBSTACK_ZALLOC (&work_obstack, VEC (set_field) *);
 		  (yyval.field_inits) = result;
 		}
-#line 1880 "rust-exp.c" /* yacc.c:1646  */
+#line 1882 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 22:
@@ -1889,7 +1891,7 @@ yyreduce:
 
 		  (yyval.field_inits) = result;
 		}
-#line 1894 "rust-exp.c" /* yacc.c:1646  */
+#line 1896 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 23:
@@ -1902,73 +1904,73 @@ yyreduce:
 		  VEC_safe_push (set_field, *(yyvsp[0].field_inits), &sf);
 		  (yyval.field_inits) = (yyvsp[0].field_inits);
 		}
-#line 1907 "rust-exp.c" /* yacc.c:1646  */
+#line 1909 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 24:
 #line 461 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_call_ish (OP_ARRAY, NULL, (yyvsp[-1].params)); }
-#line 1913 "rust-exp.c" /* yacc.c:1646  */
+#line 1915 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 25:
 #line 463 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_call_ish (OP_ARRAY, NULL, (yyvsp[-1].params)); }
-#line 1919 "rust-exp.c" /* yacc.c:1646  */
+#line 1921 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 26:
 #line 465 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (OP_RUST_ARRAY, (yyvsp[-3].op), (yyvsp[-1].op)); }
-#line 1925 "rust-exp.c" /* yacc.c:1646  */
+#line 1927 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 27:
 #line 467 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (OP_RUST_ARRAY, (yyvsp[-3].op), (yyvsp[-1].op)); }
-#line 1931 "rust-exp.c" /* yacc.c:1646  */
+#line 1933 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 28:
 #line 472 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_range ((yyvsp[-1].op), NULL); }
-#line 1937 "rust-exp.c" /* yacc.c:1646  */
+#line 1939 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 29:
 #line 474 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_range ((yyvsp[-2].op), (yyvsp[0].op)); }
-#line 1943 "rust-exp.c" /* yacc.c:1646  */
+#line 1945 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 30:
 #line 476 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_range (NULL, (yyvsp[0].op)); }
-#line 1949 "rust-exp.c" /* yacc.c:1646  */
+#line 1951 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 31:
 #line 478 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_range (NULL, NULL); }
-#line 1955 "rust-exp.c" /* yacc.c:1646  */
+#line 1957 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 32:
 #line 483 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_literal ((yyvsp[0].typed_val_int)); }
-#line 1961 "rust-exp.c" /* yacc.c:1646  */
+#line 1963 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 33:
 #line 485 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_literal ((yyvsp[0].typed_val_int)); }
-#line 1967 "rust-exp.c" /* yacc.c:1646  */
+#line 1969 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 34:
 #line 487 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_dliteral ((yyvsp[0].typed_val_float)); }
-#line 1973 "rust-exp.c" /* yacc.c:1646  */
+#line 1975 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 35:
@@ -2001,13 +2003,13 @@ yyreduce:
 		  token.length = strlen (token.ptr);
 		  (yyval.op) = ast_struct (ast_path (token, NULL), fields);
 		}
-#line 2006 "rust-exp.c" /* yacc.c:1646  */
+#line 2008 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 36:
 #line 518 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_string ((yyvsp[0].sval)); }
-#line 2012 "rust-exp.c" /* yacc.c:1646  */
+#line 2014 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 37:
@@ -2020,7 +2022,7 @@ yyreduce:
 		  val.val = 1;
 		  (yyval.op) = ast_literal (val);
 		}
-#line 2025 "rust-exp.c" /* yacc.c:1646  */
+#line 2027 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 38:
@@ -2033,13 +2035,13 @@ yyreduce:
 		  val.val = 0;
 		  (yyval.op) = ast_literal (val);
 		}
-#line 2038 "rust-exp.c" /* yacc.c:1646  */
+#line 2040 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 39:
 #line 541 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_structop ((yyvsp[-2].op), (yyvsp[0].sval).ptr, 0); }
-#line 2044 "rust-exp.c" /* yacc.c:1646  */
+#line 2046 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 40:
@@ -2048,31 +2050,31 @@ yyreduce:
 		  (yyval.op) = ast_structop ((yyvsp[-2].op), (yyvsp[0].sval).ptr, 1);
 		  rust_ast = (yyval.op);
 		}
-#line 2053 "rust-exp.c" /* yacc.c:1646  */
+#line 2055 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 41:
 #line 548 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_structop_anonymous ((yyvsp[-2].op), (yyvsp[0].typed_val_int)); }
-#line 2059 "rust-exp.c" /* yacc.c:1646  */
+#line 2061 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 42:
 #line 553 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_SUBSCRIPT, (yyvsp[-3].op), (yyvsp[-1].op)); }
-#line 2065 "rust-exp.c" /* yacc.c:1646  */
+#line 2067 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 43:
 #line 558 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_unary (UNOP_PLUS, (yyvsp[0].op)); }
-#line 2071 "rust-exp.c" /* yacc.c:1646  */
+#line 2073 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 44:
 #line 561 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_unary (UNOP_NEG, (yyvsp[0].op)); }
-#line 2077 "rust-exp.c" /* yacc.c:1646  */
+#line 2079 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 45:
@@ -2084,163 +2086,163 @@ yyreduce:
 		     values.  */
 		  (yyval.op) = ast_unary (UNOP_COMPLEMENT, (yyvsp[0].op));
 		}
-#line 2089 "rust-exp.c" /* yacc.c:1646  */
+#line 2091 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 46:
 #line 573 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_unary (UNOP_IND, (yyvsp[0].op)); }
-#line 2095 "rust-exp.c" /* yacc.c:1646  */
+#line 2097 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 47:
 #line 576 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_unary (UNOP_ADDR, (yyvsp[0].op)); }
-#line 2101 "rust-exp.c" /* yacc.c:1646  */
+#line 2103 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 48:
 #line 579 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_unary (UNOP_ADDR, (yyvsp[0].op)); }
-#line 2107 "rust-exp.c" /* yacc.c:1646  */
+#line 2109 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 53:
 #line 592 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_MUL, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2113 "rust-exp.c" /* yacc.c:1646  */
+#line 2115 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 54:
 #line 595 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_REPEAT, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2119 "rust-exp.c" /* yacc.c:1646  */
+#line 2121 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 55:
 #line 598 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_DIV, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2125 "rust-exp.c" /* yacc.c:1646  */
+#line 2127 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 56:
 #line 601 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_REM, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2131 "rust-exp.c" /* yacc.c:1646  */
+#line 2133 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 57:
 #line 604 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_LESS, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2137 "rust-exp.c" /* yacc.c:1646  */
+#line 2139 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 58:
 #line 607 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_GTR, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2143 "rust-exp.c" /* yacc.c:1646  */
+#line 2145 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 59:
 #line 610 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_BITWISE_AND, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2149 "rust-exp.c" /* yacc.c:1646  */
+#line 2151 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 60:
 #line 613 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_BITWISE_IOR, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2155 "rust-exp.c" /* yacc.c:1646  */
+#line 2157 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 61:
 #line 616 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_BITWISE_XOR, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2161 "rust-exp.c" /* yacc.c:1646  */
+#line 2163 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 62:
 #line 619 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_ADD, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2167 "rust-exp.c" /* yacc.c:1646  */
+#line 2169 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 63:
 #line 622 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_SUB, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2173 "rust-exp.c" /* yacc.c:1646  */
+#line 2175 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 64:
 #line 625 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_LOGICAL_OR, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2179 "rust-exp.c" /* yacc.c:1646  */
+#line 2181 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 65:
 #line 628 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_LOGICAL_AND, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2185 "rust-exp.c" /* yacc.c:1646  */
+#line 2187 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 66:
 #line 631 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_EQUAL, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2191 "rust-exp.c" /* yacc.c:1646  */
+#line 2193 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 67:
 #line 634 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_NOTEQUAL, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2197 "rust-exp.c" /* yacc.c:1646  */
+#line 2199 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 68:
 #line 637 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_LEQ, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2203 "rust-exp.c" /* yacc.c:1646  */
+#line 2205 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 69:
 #line 640 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_GEQ, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2209 "rust-exp.c" /* yacc.c:1646  */
+#line 2211 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 70:
 #line 643 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_LSH, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2215 "rust-exp.c" /* yacc.c:1646  */
+#line 2217 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 71:
 #line 646 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_RSH, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2221 "rust-exp.c" /* yacc.c:1646  */
+#line 2223 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 72:
 #line 651 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_cast ((yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2227 "rust-exp.c" /* yacc.c:1646  */
+#line 2229 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 73:
 #line 656 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_operation (BINOP_ASSIGN, (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2233 "rust-exp.c" /* yacc.c:1646  */
+#line 2235 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 74:
 #line 661 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_compound_assignment ((yyvsp[-1].opcode), (yyvsp[-2].op), (yyvsp[0].op)); }
-#line 2239 "rust-exp.c" /* yacc.c:1646  */
+#line 2241 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 75:
 #line 667 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = (yyvsp[-1].op); }
-#line 2245 "rust-exp.c" /* yacc.c:1646  */
+#line 2247 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 76:
@@ -2250,7 +2252,7 @@ yyreduce:
 		  make_cleanup (VEC_cleanup (rust_op_ptr), (yyval.params));
 		  VEC_safe_push (rust_op_ptr, *(yyval.params), (yyvsp[0].op));
 		}
-#line 2255 "rust-exp.c" /* yacc.c:1646  */
+#line 2257 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 77:
@@ -2259,7 +2261,7 @@ yyreduce:
 		  VEC_safe_push (rust_op_ptr, *(yyvsp[-2].params), (yyvsp[0].op));
 		  (yyval.params) = (yyvsp[-2].params);
 		}
-#line 2264 "rust-exp.c" /* yacc.c:1646  */
+#line 2266 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 78:
@@ -2269,73 +2271,73 @@ yyreduce:
 		  (yyval.params) = OBSTACK_ZALLOC (&work_obstack, VEC (rust_op_ptr) *);
 		  make_cleanup (VEC_cleanup (rust_op_ptr), (yyval.params));
 		}
-#line 2274 "rust-exp.c" /* yacc.c:1646  */
+#line 2276 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 79:
 #line 692 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.params) = (yyvsp[0].params); }
-#line 2280 "rust-exp.c" /* yacc.c:1646  */
+#line 2282 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 80:
 #line 699 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.params) = (yyvsp[-1].params); }
-#line 2286 "rust-exp.c" /* yacc.c:1646  */
+#line 2288 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 81:
 #line 704 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_call_ish (OP_FUNCALL, (yyvsp[-1].op), (yyvsp[0].params)); }
-#line 2292 "rust-exp.c" /* yacc.c:1646  */
+#line 2294 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 84:
 #line 714 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.depth) = 1; }
-#line 2298 "rust-exp.c" /* yacc.c:1646  */
+#line 2300 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 85:
 #line 716 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.depth) = (yyvsp[-2].depth) + 1; }
-#line 2304 "rust-exp.c" /* yacc.c:1646  */
+#line 2306 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 86:
 #line 721 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = (yyvsp[0].op); }
-#line 2310 "rust-exp.c" /* yacc.c:1646  */
+#line 2312 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 87:
 #line 723 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_path ((yyvsp[0].sval), NULL); }
-#line 2316 "rust-exp.c" /* yacc.c:1646  */
+#line 2318 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 88:
 #line 725 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_path (make_stoken ("self"), NULL); }
-#line 2322 "rust-exp.c" /* yacc.c:1646  */
+#line 2324 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 90:
 #line 731 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = super_name ((yyvsp[0].op), 0); }
-#line 2328 "rust-exp.c" /* yacc.c:1646  */
+#line 2330 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 91:
 #line 733 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = super_name ((yyvsp[0].op), (yyvsp[-1].depth)); }
-#line 2334 "rust-exp.c" /* yacc.c:1646  */
+#line 2336 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 92:
 #line 735 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = crate_name ((yyvsp[0].op)); }
-#line 2340 "rust-exp.c" /* yacc.c:1646  */
+#line 2342 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 93:
@@ -2348,13 +2350,13 @@ yyreduce:
 		  (yyval.op) = ast_path (rust_concat3 ("::", (yyvsp[0].op)->left.sval.ptr, NULL),
 				 (yyvsp[0].op)->right.params);
 		}
-#line 2353 "rust-exp.c" /* yacc.c:1646  */
+#line 2355 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 94:
 #line 749 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_path ((yyvsp[0].sval), NULL); }
-#line 2359 "rust-exp.c" /* yacc.c:1646  */
+#line 2361 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 95:
@@ -2364,13 +2366,13 @@ yyreduce:
 					       (yyvsp[0].sval).ptr),
 				 NULL);
 		}
-#line 2369 "rust-exp.c" /* yacc.c:1646  */
+#line 2371 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 96:
 #line 757 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_path ((yyvsp[-4].op)->left.sval, (yyvsp[-1].params)); }
-#line 2375 "rust-exp.c" /* yacc.c:1646  */
+#line 2377 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 97:
@@ -2379,25 +2381,25 @@ yyreduce:
 		  (yyval.op) = ast_path ((yyvsp[-4].op)->left.sval, (yyvsp[-1].params));
 		  rust_push_back ('>');
 		}
-#line 2384 "rust-exp.c" /* yacc.c:1646  */
+#line 2386 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 99:
 #line 768 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = super_name ((yyvsp[0].op), 0); }
-#line 2390 "rust-exp.c" /* yacc.c:1646  */
+#line 2392 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 100:
 #line 770 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = super_name ((yyvsp[0].op), (yyvsp[-1].depth)); }
-#line 2396 "rust-exp.c" /* yacc.c:1646  */
+#line 2398 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 101:
 #line 772 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = crate_name ((yyvsp[0].op)); }
-#line 2402 "rust-exp.c" /* yacc.c:1646  */
+#line 2404 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 102:
@@ -2410,13 +2412,13 @@ yyreduce:
 		  (yyval.op) = ast_path (rust_concat3 ("::", (yyvsp[0].op)->left.sval.ptr, NULL),
 				 (yyvsp[0].op)->right.params);
 		}
-#line 2415 "rust-exp.c" /* yacc.c:1646  */
+#line 2417 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 103:
 #line 786 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_path ((yyvsp[0].sval), NULL); }
-#line 2421 "rust-exp.c" /* yacc.c:1646  */
+#line 2423 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 104:
@@ -2426,13 +2428,13 @@ yyreduce:
 					       (yyvsp[0].sval).ptr),
 				 NULL);
 		}
-#line 2431 "rust-exp.c" /* yacc.c:1646  */
+#line 2433 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 106:
 #line 798 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_path ((yyvsp[-3].op)->left.sval, (yyvsp[-1].params)); }
-#line 2437 "rust-exp.c" /* yacc.c:1646  */
+#line 2439 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 107:
@@ -2441,67 +2443,67 @@ yyreduce:
 		  (yyval.op) = ast_path ((yyvsp[-3].op)->left.sval, (yyvsp[-1].params));
 		  rust_push_back ('>');
 		}
-#line 2446 "rust-exp.c" /* yacc.c:1646  */
+#line 2448 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 109:
 #line 809 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_array_type ((yyvsp[-3].op), (yyvsp[-1].typed_val_int)); }
-#line 2452 "rust-exp.c" /* yacc.c:1646  */
+#line 2454 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 110:
 #line 811 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_array_type ((yyvsp[-3].op), (yyvsp[-1].typed_val_int)); }
-#line 2458 "rust-exp.c" /* yacc.c:1646  */
+#line 2460 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 111:
 #line 813 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_slice_type ((yyvsp[-1].op)); }
-#line 2464 "rust-exp.c" /* yacc.c:1646  */
+#line 2466 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 112:
 #line 815 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_reference_type ((yyvsp[0].op)); }
-#line 2470 "rust-exp.c" /* yacc.c:1646  */
+#line 2472 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 113:
 #line 817 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_pointer_type ((yyvsp[0].op), 1); }
-#line 2476 "rust-exp.c" /* yacc.c:1646  */
+#line 2478 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 114:
 #line 819 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_pointer_type ((yyvsp[0].op), 0); }
-#line 2482 "rust-exp.c" /* yacc.c:1646  */
+#line 2484 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 115:
 #line 821 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_function_type ((yyvsp[0].op), (yyvsp[-3].params)); }
-#line 2488 "rust-exp.c" /* yacc.c:1646  */
+#line 2490 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 116:
 #line 823 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.op) = ast_tuple_type ((yyvsp[-1].params)); }
-#line 2494 "rust-exp.c" /* yacc.c:1646  */
+#line 2496 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 117:
 #line 828 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.params) = NULL; }
-#line 2500 "rust-exp.c" /* yacc.c:1646  */
+#line 2502 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 118:
 #line 830 "rust-exp.y" /* yacc.c:1646  */
     { (yyval.params) = (yyvsp[0].params); }
-#line 2506 "rust-exp.c" /* yacc.c:1646  */
+#line 2508 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 119:
@@ -2514,7 +2516,7 @@ yyreduce:
 		  VEC_safe_push (rust_op_ptr, *result, (yyvsp[0].op));
 		  (yyval.params) = result;
 		}
-#line 2519 "rust-exp.c" /* yacc.c:1646  */
+#line 2521 "rust-exp.c" /* yacc.c:1646  */
     break;
 
   case 120:
@@ -2523,11 +2525,11 @@ yyreduce:
 		  VEC_safe_push (rust_op_ptr, *(yyvsp[-2].params), (yyvsp[0].op));
 		  (yyval.params) = (yyvsp[-2].params);
 		}
-#line 2528 "rust-exp.c" /* yacc.c:1646  */
+#line 2530 "rust-exp.c" /* yacc.c:1646  */
     break;
 
 
-#line 2532 "rust-exp.c" /* yacc.c:1646  */
+#line 2534 "rust-exp.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
